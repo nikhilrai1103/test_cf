@@ -1,4 +1,4 @@
-<!--session key-->
+<!--if session key not present-->
 <cfif !StructKeyExists(session, "email")>
   <cflocation  url="../login/loginform.cfm">
 </cfif>
@@ -8,19 +8,8 @@
   select * from user left join admin on user.Id=admin.user_id where Email = <cfqueryparam value="#session.email#" cfsqltype = "cf_sql_varchar">;
 </cfquery>
 
+<!--if user id = 1 then only display the page else not-->
 <cfif admin_access.is_admin eq 1>
-
-<!---only admin can access everything
-<cfquery datasource="Nikhildb" name="xyz">
-  select * from user where Email = <cfqueryparam value="#session.email#" cfsqltype = "cf_sql_varchar">;
-</cfquery>
-
-<cfquery datasource = "Nikhildb" name = "abc">
-select * from admin where user_id = <cfqueryparam value="#xyz.id#" cfsqltype = "cf_sql_varchar">;
-</cfquery>
-
-<cfif abc.is_admin eq 1>--->
-
 
 <!DOCTYPE html>
 <html lang="en">
