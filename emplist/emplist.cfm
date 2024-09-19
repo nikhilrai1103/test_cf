@@ -1,16 +1,25 @@
+<!--session key-->
 <cfif !StructKeyExists(session, "email")>
   <cflocation  url="../login/loginform.cfm">
 </cfif>
 
+<!--only admin can access everything-->
+<cfquery datasource="Nikhildb" name="admin_access">
+  select * from user left join admin on user.Id=admin.user_id where Email = <cfqueryparam value="#session.email#" cfsqltype = "cf_sql_varchar">;
+</cfquery>
+
+<cfif admin_access.is_admin eq 1>
+
+<!---only admin can access everything
 <cfquery datasource="Nikhildb" name="xyz">
-  select * from user where Email = "#session.email#";
+  select * from user where Email = <cfqueryparam value="#session.email#" cfsqltype = "cf_sql_varchar">;
 </cfquery>
 
 <cfquery datasource = "Nikhildb" name = "abc">
-select * from admin where user_id = "#xyz.id#";
+select * from admin where user_id = <cfqueryparam value="#xyz.id#" cfsqltype = "cf_sql_varchar">;
 </cfquery>
 
-<cfif abc.is_admin eq 1>
+<cfif abc.is_admin eq 1>--->
 
 
 <!DOCTYPE html>
@@ -331,6 +340,7 @@ select * from admin where user_id = "#xyz.id#";
       </body>
       <script>
 
+        <!---view button--->
         function viewdata(value) {
           $.ajax({
             url: "emplist.cfc?method=view_Data",
@@ -361,6 +371,7 @@ select * from admin where user_id = "#xyz.id#";
           });
         }
 
+        <!---make admin--->
         function make_admin(data) {
           console.log(data)
           $.ajax({
@@ -378,6 +389,7 @@ select * from admin where user_id = "#xyz.id#";
         }
 
 
+        <!---search button--->
         $("#Search").on("click", function(){
           var id = $("#search").val(); 
           console.log(id);
@@ -501,7 +513,6 @@ select * from admin where user_id = "#xyz.id#";
 
               }
             });
-
         });
       </script>
     </html>
