@@ -507,5 +507,5 @@ select * from admin where user_id = "#xyz.id#";
     </html>
 
     <cfelse>
-      <cfoutput>You are not an admin</cfoutput>
+      <cflocation  url="../login/loginform.cfm">
 </cfif>
