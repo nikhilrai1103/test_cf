@@ -8,7 +8,7 @@
   select * from user left join admin on user.Id=admin.user_id where Email = <cfqueryparam value="#session.email#" cfsqltype = "cf_sql_varchar">;
 </cfquery>
 
-<!--if user id = 1 then only display the page else not-->
+<!--if is_admin/user is admin = 1 then only display the page else not-->
 <cfif admin_access.is_admin eq 1>
 
 <!DOCTYPE html>
