@@ -1,4 +1,4 @@
-<cfdump  var = "#form#">
+//<cfdump  var = "#form#">
 <cfset email = #form.email#>
 <cfset password = #form.psw#>
 
@@ -10,6 +10,8 @@ select Email , Password from user where Email = "#email#" AND Password = "#passw
 <cfset count = 0>
 <cfif login.recordCount gt 0>
     <cfset session.email = #email#>
+    <cfset session.password=#password#>
+
     <cflocation url="../Home/home.cfm">
 
 <cfelseif login.recordCount eq 0>

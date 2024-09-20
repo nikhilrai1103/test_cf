@@ -403,6 +403,8 @@ $(document).ready(function () {
         return true;
     }
 });
+
+
 function getAgeee() {
 
     const dobString = $("#dob").val();
