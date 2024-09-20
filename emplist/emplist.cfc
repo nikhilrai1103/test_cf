@@ -51,8 +51,7 @@
     <cfargument name="empid" required="true" type="any">
 
     <cfquery datasource = "Nikhildb" name="toggle">
-      select * from admin where user_id = <cfqueryparam value="#arguments.empid#" cfsqltype="cf_sql_integer">
-      ;
+      select * from admin where user_id = <cfqueryparam value="#arguments.empid#" cfsqltype="cf_sql_integer">;
     </cfquery>
 
     <cfdump var="#empid#">
@@ -60,31 +59,26 @@
     <cfif toggle.RecordCount eq 0>
 
       <cfquery datasource = "Nikhildb" name="insert">
-        Insert into admin(user_id,is_admin)values( <cfoutput>
-          #arguments.empid#</cfoutput>
-        ,1);
+        Insert into admin(user_id,is_admin)values(<cfoutput>#arguments.empid#</cfoutput>,1);
       </cfquery>
-
     <cfelse>
 
       <cfquery datasource = "Nikhildb" name="admin">
-        select is_admin from admin where user_id=( <cfoutput>
-          #arguments.empid#</cfoutput>
-        );
+        select is_admin from admin where user_id=(<cfoutput>#arguments.empid#</cfoutput>);
       </cfquery>
+      <cfdump  var="#admin#">
 
       <cfif admin.is_admin eq 0>
         <cfquery name="Update_the_admin" datasource = "Nikhildb">
           update admin set is_admin = 1 where user_id=( <cfoutput>
-            #arguments.empid#</cfoutput>
-          );
+            #arguments.empid#</cfoutput>);
         </cfquery>
+
 
       <cfelse>
         <cfquery name="Update_admin" datasource = "Nikhildb">
           update admin set is_admin = 0 where user_id=( <cfoutput>
-            #arguments.empid#</cfoutput>
-          );
+            #arguments.empid#</cfoutput>);
         </cfquery>
 
       </cfif>

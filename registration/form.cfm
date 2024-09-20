@@ -38,7 +38,8 @@
 
   </head>
   <style></style>
-
+  <body class="body">
+ 
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3"></div>
@@ -196,7 +197,7 @@
               </div>
 
               <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="CF" name="tech_logy" value="CF" <cfif listFindNoCase(tech_logy, "CF")>Checked</cfif> >
+                <input type="checkbox" class="form-check-input" id="CF" name="tech_logy" value="CF" <cfif listFindNoCase(tech_logy, "CF")>Checked</cfif>>
                 <label class="form-check-label" for="CF">Coldfusion</label>
               </div>
 
@@ -270,7 +271,15 @@
 
             <cfif id eq "">
 
-            <cfoutput><button type="submit" id="submit" class="btn btn-success mt-3 col-md-6">Submit</button></cfoutput>
+             <cfif password neq confirm_pass>
+
+              <cfoutput><button type="submit" id="submit" class="btn btn-success mt-3 col-md-6" disabled>Submit</button></cfoutput>
+
+              <cfelse>
+
+              <cfoutput><button type="submit" id="submit" class="btn btn-success mt-3 col-md-6">Submit</button></cfoutput>
+
+             </cfif>
 
             <cfelse>
                <cfoutput><button type="submit" id="submit" class="btn btn-success mt-3 col-md-6">Update</button></cfoutput>

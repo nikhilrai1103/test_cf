@@ -4,6 +4,37 @@ $(document).ready(function () {
         return validateform();
     });
 
+    $("body").on("click", function () {
+        console.log("body onclick event");
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+
+        document.body.style.background = "rgb(" + red + ", " + green + ", " + blue + ")";
+
+       //$(".body").css("background" ,"rgb(", red + ", " + green + ", " + blue+")");
+    })
+
+
+    $("#cpsw").on("input", function () {
+        
+        console.log("oninput");
+        const password = jQuery.trim($("#psw").val());
+        const confirm_password = $("#cpsw").val();
+        const ecpw = $("#ecpsw")
+
+        if (password != confirm_password) {
+            $("#submit").prop("disabled", true);
+            ecpw.text("wrong passwords");
+            return false;
+        }
+        else {
+            $("#submit").prop("disabled", false);
+            ecpw.text("");
+        }
+
+    })
+
     //marital status and gender
     $("#hname").hide();
     $("#wname").hide();
@@ -371,27 +402,6 @@ $(document).ready(function () {
 
         return true;
     }
-
-    //marital status and gender
-   /* $("#hname").hide();
-    $("#wname").hide();
-    $("#father_name").hide();
-
-    $("#ms").on("change", function (e) {
-        console.log("onchange marital status");
-        const ms = $("#ms").val();
-        const gender = $("#gender").val();
-        const male = $("#male").val();
-        const female = $("#female").val();
-
-        if (ms == "Married" && gender == male) {
-            $("#wname").show();
-        }
-        else if (ms == "Unmarried" && gender == female) {
-            $("#father_name").show();
-        }
-    })*/
-
 });
 function getAgeee() {
 
@@ -424,7 +434,9 @@ function imgfun(event) {
     $("#frame").removeAttr("style");
 
     $("#img").css("display", "none");
-
 }
+
+
+
 
 
