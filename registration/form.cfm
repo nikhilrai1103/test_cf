@@ -4,22 +4,22 @@
 <cfquery datasource = "Nikhildb" name="editinfo">
   select * from user where Id = "#url.id#"
 </cfquery>
-<cfset images = #editinfo.Photo#>
-<cfset fname = #editinfo.Firstname#>
-<cfset lname = #editinfo.Lastname#>
-<cfset email = #editinfo.Email#>
-<cfset phone = #editinfo.Phone_number#>
-<cfset dob = #editinfo.Dob#>
-<cfset ms = #editinfo.Marital_status#>
-<cfset gender = #editinfo.Gender#>
-<cfset tech_logy = #editinfo.Technology#>
-<cfset password = #editinfo.Password#>
-<cfset confirm_pass = #editinfo.Confirm_password#>
-<cfset address = #editinfo.Address#>
-<cfset city = #editinfo.City#>
-<cfset pin = #editinfo.Pin#>
-<cfset state = #editinfo.State#>
-<cfset country = #editinfo.Country#>
+<cfset images = editinfo.Photo>
+<cfset fname = editinfo.Firstname>
+<cfset lname = editinfo.Lastname>
+<cfset email = editinfo.Email>
+<cfset phone = editinfo.Phone_number>
+<cfset dob = editinfo.Dob>
+<cfset ms = editinfo.Marital_status>
+<cfset gender = editinfo.Gender>
+<cfset tech_logy = editinfo.Technology>
+<cfset password = editinfo.Password>
+<cfset confirm_pass = editinfo.Confirm_password>
+<cfset address = editinfo.Address>
+<cfset city = editinfo.City>
+<cfset pin = editinfo.Pin>
+<cfset state = editinfo.State>
+<cfset country = editinfo.Country>
 </cfif>
 
 
