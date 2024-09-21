@@ -1,3 +1,8 @@
+<!--if session key not present-->
+<cfif !StructKeyExists(session, "email")>
+  <cflocation url="../login/loginform.cfm">
+</cfif>
+
 <!---<cfdump var="#session#">--->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,15 +18,51 @@
     <script src="../Home/home.js"></script>
 </head>
 <style>
+body{
+  padding:2px;
+}
     #sidebar{
-        background-color:red;
-        height:700px;
+      color: #818181;
+      height:700px;
+      background-color: #111;
+      position :fixed;
     }
+
+    #nav-item a:hover{
+     color: #f1f1f1;
+    }
+
     #toggler{
         cursor:pointer;
     }
 
+    #nav-item{
+      font-size: 20px;
+      padding: 8px 8px 8px 32px;
+      margin-top: 10px;
+
+    }
+
+    .openbtn{
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+  .openbtn:hover {
+   background-color: #333;
+   }
+   #logoutDropdown{
+    margin-top:130px;
+    margin-left:32px;
+   }
+
+
 </style>
+
 <body>
 <!--navbar-->
 
@@ -30,8 +71,9 @@
  <nav class="navbar navbar-expand-lg bg-body-tertiary">
 
 
-     <span class="navbar-toggler-icon" id="toggler" target="#navbarSupportedContent"></span>
-      <div class="col-md-3"></div>
+  <button class="openbtn" id="toggler">Open Sidebar</button>
+   <!--<span class="navbar-toggler-icon" id="toggler" target="#navbarSupportedContent"></span>-->
+      <div class="col-md-2"></div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -80,53 +122,73 @@
  </div>
  </div>
 
+
+
 <!--Sidebar-->
-<div class="col-md-2" id="sidebar">
-
-
+<div class="col-md-2" id="sidebar" class="sidebar">
 
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <div>
-    <li class="nav-item" id="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-    </li>
-    </div>
-    <div>
-  <li class="nav-item" id="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Orders</a>
-  </li>
-  </div>
-  <div>
-  <li class="nav-item" id="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Product</a>
-  </li>
-  </div>
-  <div>
-  <li class="nav-item" id="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Customers</a>
-  </li>
-  </div>
-  <div>
-  <li class="nav-item dropdown" id="nav-item" >
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown
+      <div class="sidebarlist">
+        <li class="nav-item" id="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+        </li>
+      </div>
+      <div class="sidebarlist">
+        <li class="nav-item" id="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Orders</a>
+        </li>
+      </div>
+      <div class="sidebarlist">
+        <li class="nav-item" id="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Product</a>
+        </li>
+      </div>
+      <div class="sidebarlist">
+        <li class="nav-item" id="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Customers</a>
+        </li>
+      </div>
+      <div class="sidebarlist">
+        <li class="nav-item dropdown" id="nav-item" >
+         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+         Dropdown
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#">Action</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li>
+            <hr class="dropdown-divider"></li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+        </li>
+      </div>
+
+    <div class="dropdown pb-4" id="logoutDropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+      <span class="d-none d-sm-inline mx-1">User</span>
     </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a class="dropdown-item" href="#">Action</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="#">Another action</a>
-      </li>
-      <li>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li>
+          <a class="dropdown-item" href="#">Settings</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">Profile</a>
+        </li>
+        <li>
         <hr class="dropdown-divider"></li>
         <li>
-          <a class="dropdown-item" href="#">Something else here</a>
-    </li>
-          </ul>
-    </li>
+          <a class="dropdown-item" href="#">Logout</a>
+        </li>
+      </ul>
     </div>
-   
+
   </ul>
 
     
