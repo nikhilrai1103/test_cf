@@ -48,7 +48,7 @@
 
   <!---admin toggle--->
   <cffunction name="toggle_data" returnformat="json" returntype="any" access="remote" hint="toggle button">
-    <cfargument name="empid" required="true" type="any">
+    <cfargument name="empid" required="true" type="any"> 
 
     <cfquery datasource = "Nikhildb" name="toggle">
       select * from admin where user_id = <cfqueryparam value="#arguments.empid#" cfsqltype="cf_sql_integer">;

@@ -59,7 +59,14 @@ body{
     margin-top:130px;
     margin-left:32px;
    }
-
+   .content_row{
+    padding: 5px;
+  }
+  .cards_body{
+    
+  }
+   
+  
 
 </style>
 
@@ -190,9 +197,65 @@ body{
     </div>
 
   </ul>
-
-    
 </div>
-        
- </body>
+
+<div class="main_body container">
+
+  <div class="row content_row">
+    <h2>Main Content</h2>
+  </div>
+
+  <!--table-->
+  <div class="container mt-3">
+   <h3>User</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Fullname</th>
+          <th>Email</th>
+          <th>Actions</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>john@example.com</td>
+          <td>
+            <button type="button" class="btn btn-warning">Added Items</button>
+            <button type="button" class="btn btn-danger">Liked Items</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ 
+
+  <!--cards-->
+  <div class="row content_row">
+      <div class="card col-md-3" style="width:300px">
+      <img class="card-img-top" src="../Images/bikeharley.jfif" alt="Card image" style="width:100%">
+
+      <div class="card-body">
+        <a href="#" class="btn btn-warning">Add to cart</a>
+        <a href="#" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+        <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+        </svg></a>
+      </div>
+      </div>
+
+      <div class="card col-md-3 ml-2" style="width:300px">
+      <img class="card-img-top" src="../Images/bikeharley.jfif" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <a href="#" class="btn btn-warning">Add to cart</a>
+        <a href="#" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+        <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+        </svg></a>
+      </div>
+      </div>
+
+  </div>
+</div>
+</body>
 </html>
